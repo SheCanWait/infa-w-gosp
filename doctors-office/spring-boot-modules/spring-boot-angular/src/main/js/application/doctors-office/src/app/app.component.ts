@@ -9,6 +9,6 @@ export class AppComponent {
   title: string;
 
   constructor() {
-    this.title = "Welcome to Doctor's office";
+    this.title = 'Welcome to Doctor\'s office';
   }
 }

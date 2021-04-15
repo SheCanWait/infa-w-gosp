@@ -1,0 +1,33 @@
+<div>
+  <form>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" [(ngModel)]="loginData.username"
+             class="form-control"
+             id="username"
+             name="username"
+             placeholder="Enter your username"
+             required #name="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" [(ngModel)]="loginData.password"
+             class="form-control"
+             id="password"
+             name="password"
+             placeholder="Enter your password"
+             required #name="ngModel">
+    </div>
+    <button type="submit"
+            style="margin: 10px"
+            (click)="onRegisterClick()"
+            class="btn btn-info">Register
+    </button>
+
+    <button type="submit"
+            style="margin: 10px"
+            (click)="onLoginClick()"
+            class="btn btn-info">Login
+    </button>
+  </form>
+</div>
