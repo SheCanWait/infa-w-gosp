@@ -23,4 +23,8 @@ export class UserService {
     return this.http.post<User>(this.usersUrl, user);
   }
 
+  public getUsernameOfCurrentUser(): string {
+    return 'mock username';
+  }
+
 }

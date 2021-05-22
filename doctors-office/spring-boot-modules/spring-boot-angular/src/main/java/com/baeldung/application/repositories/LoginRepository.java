@@ -26,7 +26,7 @@ public interface LoginRepository extends JpaRepository<LoginData, Long> {
             nativeQuery = true)
     void register(@Param("username") String username, @Param("password") String password);
 
-    @Query(value = "SELECT COUNT(LOGIN) FROM LOGIN_DATA WHERE LOGIN:=username AND PASSWORD=:password",
+    @Query(value = "SELECT COUNT(LOGIN) FROM LOGIN_DATA WHERE LOGIN=:username AND PASSWORD=:password",
             nativeQuery = true)
     Integer login(@Param("username") String username, @Param("password") String password);
 }
