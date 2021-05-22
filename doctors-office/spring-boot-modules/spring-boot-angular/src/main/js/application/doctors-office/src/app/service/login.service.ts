@@ -9,16 +9,16 @@ import {Observable} from 'rxjs';
 })
 export class LoginService {
 
-  readonly loginUrl = ApplicationProperties.APPLICATION_ADDRESS + '/login';
-  readonly registerUrl = ApplicationProperties.APPLICATION_ADDRESS + '/register';
+  private readonly loginUrl = ApplicationProperties.APPLICATION_ADDRESS + '/login';
+  private readonly registerUrl = ApplicationProperties.APPLICATION_ADDRESS + '/register';
 
   constructor(private http: HttpClient) { }
 
-  login(loginData: LoginData): Observable<any> {
+  login(loginData: LoginData): Observable<boolean> {
     return this.http.post<boolean>(this.loginUrl, loginData);
   }
 
-  register(loginData: LoginData): Observable<any> {
+  register(loginData: LoginData): Observable<boolean> {
     return this.http.post<boolean>(this.registerUrl, loginData);
   }
 }

@@ -9,7 +9,7 @@ import {ApplicationProperties} from '../properties/application-properties';
 })
 export class UserService {
 
-  private usersUrl: string;
+  private readonly usersUrl: string;
 
   constructor(private http: HttpClient) {
     this.usersUrl = ApplicationProperties.APPLICATION_ADDRESS + '/users';
