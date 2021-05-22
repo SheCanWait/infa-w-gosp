@@ -2,27 +2,27 @@ package com.baeldung.application.entities;
 
 import org.apache.commons.lang3.StringUtils;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class LoginData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private long id;
-    private final String login;
+    @Column(unique = true)
+    private final String username;
+    @Column
     private final String password;
 
     public LoginData() {
-        this.login = StringUtils.EMPTY;
+        this.username = StringUtils.EMPTY;
         this.password = StringUtils.EMPTY;
     }
 
     public LoginData(String login, String password) {
-        this.login = login;
+        this.username = login;
         this.password = password;
     }
 
@@ -30,8 +30,8 @@ public class LoginData {
         return id;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
     public String getPassword() {
@@ -40,6 +40,6 @@ public class LoginData {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + this.getId() + ", name=" + this.getLogin() + ", email=" + this.getPassword() + '}';
+        return "User{" + "id=" + this.getId() + ", username=" + this.getUsername() + ", password=" + this.getPassword() + '}';
     }
 }

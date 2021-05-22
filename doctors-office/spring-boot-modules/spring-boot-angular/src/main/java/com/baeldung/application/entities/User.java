@@ -1,17 +1,17 @@
 package com.baeldung.application.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private long id;
+    @Column
     private final String name;
+    @Column
     private final String email;
     
     public User() {

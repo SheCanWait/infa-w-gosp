@@ -8,7 +8,7 @@
 /bazel-out
 
 # db
-.db
+*.mv.db
 
 # dependencies
 /node_modules

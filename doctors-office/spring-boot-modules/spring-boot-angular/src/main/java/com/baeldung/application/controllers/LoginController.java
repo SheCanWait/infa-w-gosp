@@ -1,13 +1,18 @@
 package com.baeldung.application.controllers;
 
+import com.baeldung.application.entities.LoginData;
 import com.baeldung.application.repositories.LoginRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.transaction.Transactional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-public class LoginController extends ApplicationController {
+public class LoginController {
 
     private final LoginRepository loginRepository;
 
@@ -16,12 +21,16 @@ public class LoginController extends ApplicationController {
     }
 
     @PostMapping("/register")
-    public boolean getUsers() {
-        return false;
+    @Transactional
+    public void register(@RequestBody LoginData loginData) {
+        boolean userAlreadyExist = loginRepository.doesUserAlreadyExist(loginData.getUsername());
+        if(!userAlreadyExist) {
+            loginRepository.register(loginData.getUsername(), loginData.getPassword());
+        }
     }
 
     @PostMapping("/login")
-    public boolean addUser() {
-        return true;
+    public boolean login(@RequestBody LoginData loginData) {
+        return loginRepository.login(loginData.getUsername(), loginData.getPassword()) == 1;
     }
 }
