@@ -22,3 +22,40 @@
   >
   </mwl-calendar-day-view>
 </div>
+
+<div>
+
+
+      Calendar event name:
+  <label>
+    <input type="text" (input)="setCalendarEventName(eventName)" (change)="setCalendarEventName(eventName)">
+  </label>
+
+
+      <label>
+      <input [matDatepicker]="basicDatepicker" (dateInput)="setCalendarEventStartDate($event.value)">
+    </label>
+<!--    <mat-datepicker-toggle [for]="basicDatepicker"></mat-datepicker-toggle>-->
+<!--    <mat-datepicker #basicDatepicker></mat-datepicker>-->
+
+<!--    <label>-->
+<!--      <input [matDatepicker]="basicDatepicker" (dateInput)="setCalendarEventEndDate($event.value)">-->
+<!--    </label>-->
+<!--    <mat-datepicker-toggle [for]="basicDatepicker"></mat-datepicker-toggle>-->
+<!--    <mat-datepicker #basicDatepicker></mat-datepicker>-->
+
+    <button type="submit"
+            style="margin: 10px"
+            (click)="onCreateCalendarEventClick()"
+            class="btn btn-info">Create calendar event
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
